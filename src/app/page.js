@@ -1,8 +1,12 @@
+'use client'
+
 import Link from "next/link";
 import Navbar from "./navbar";
+import { useAuth } from './contexts/authContexts/index'
 
 
 export default function Page() {
+  const {userLoggedIn} = useAuth();
   return (
 <div className="h-full bg-teal-200">
   {/* Navigation Bar */}
@@ -19,7 +23,11 @@ export default function Page() {
       Your ultimate tool for managing and tracking your job search journey.
     </small>
     <button className="bg-amber-50 text-gray-900 px-6 py-2 rounded-lg font-medium shadow-md">
+    { userLoggedIn ?
+    <Link href="/status">Get Started</Link>
+    :
     <Link href="/login">Get Started</Link>
+    }
     </button>
   </div>
 

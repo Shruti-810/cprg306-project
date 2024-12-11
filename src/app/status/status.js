@@ -63,7 +63,6 @@ export default function Status({ title = "Status", onStatusChange }) {
         console.log("Job Edited successfully");
         setShowOverlay(!showOverlay);
         setIsEdit(false)
-        fetchJobs(title);
         onStatusChange();
       } catch (error) {
         console.log("Can not edit job.");
